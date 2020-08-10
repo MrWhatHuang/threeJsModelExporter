@@ -1,0 +1,19 @@
+{
+  "name": "threejsmodelexporter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mr.What",
+  "license": "ISC",
+  "devDependencies": {
+    "three": "^0.119.1"
+  },
+  "dependencies": {
+    "webpack": "^4.44.1",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
