@@ -4,16 +4,46 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "npx webpack-dev-server",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mr.What",
   "license": "ISC",
   "devDependencies": {
-    "three": "^0.119.1"
-  },
-  "dependencies": {
+    "css-loader": "^4.2.1",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.0",
+    "html-webpack-plugin": "^4.3.0",
+    "less": "^3.12.2",
+    "less-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^0.10.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "style-loader": "^1.2.1",
+    "three": "^0.119.1",
     "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {},
+  "browserslist": {
+    "development": [
+      "last 1 chorme version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">1%",
+      "not dead",
+      "not op_mini all",
+      "not ie <= 8"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base"
   }
 }
