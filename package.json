@@ -12,10 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^4.2.1",
-    "eslint": "^7.6.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-import": "^2.22.0",
     "html-webpack-plugin": "^4.3.0",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
@@ -29,7 +25,9 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jszip": "^3.5.0"
+  },
   "browserslist": {
     "development": [
       "last 1 chorme version",
@@ -45,5 +43,11 @@
   },
   "eslintConfig": {
     "extends": "airbnb-base"
+  },
+  "noUse": {
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.0"
   }
 }

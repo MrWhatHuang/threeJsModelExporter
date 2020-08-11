@@ -1,21 +1,21 @@
 /*
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: Mr.What
  * @Date: 2020-08-10 17:37:58
  * @LastEditors: Mr.What
- * @LastEditTime: 2020-08-10 17:41:22
+ * @LastEditTime: 2020-08-11 11:08:25
  */
-const { resolve } = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCssAassetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAassetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.[contenthash].js',
   },
   module: {
     rules: [
@@ -32,8 +32,8 @@ module.exports = {
         use: [
           // 'style-loader',
           MiniCssExtractPlugin.loader,
-          'css-loader'
-        ]
+          'css-loader',
+        ],
       }, {
         test: /\.less$/,
         use: [
@@ -46,13 +46,13 @@ module.exports = {
             options: {
               ident: 'postcss',
               plugins: () => [
-                require('postcss-preset-env')
-              ]
-            }
-          }
-        ]
-      }
-    ]
+                require('postcss-preset-env'),
+              ],
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -61,20 +61,21 @@ module.exports = {
         // 移除空格
         collapseWhitespace: true,
         // 移除注释
-        removeComments: true
-      }
+        removeComments: true,
+      },
     }),
     // 分离css文件
     new MiniCssExtractPlugin(),
     // 压缩css
-    new OptimizeCssAassetsWebpackPlugin()
+    new OptimizeCssAassetsWebpackPlugin(),
   ],
   mode: 'development',
   devServer: {
     contentBase: resolve(__dirname, 'dist'),
     open: true,
-    hot: true,
+    // hot: true,
     compress: true,
-    port: 8081
-  }
-}
+    port: 8081,
+  },
+  devtool: 'eval-source-map'
+};
