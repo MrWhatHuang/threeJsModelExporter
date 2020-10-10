@@ -4,7 +4,7 @@
  * @Author: Mr.What
  * @Date: 2020-08-10 17:30:01
  * @LastEditors: Mr.What
- * @LastEditTime: 2020-08-11 11:53:26
+ * @LastEditTime: 2020-08-11 17:48:44
  */
 import './index.less';
 // import * as THREE from '../node_modules/three/build/three.module.js';
@@ -39,7 +39,12 @@ exportBtn.addEventListener('click', () => {
 });
 
 function getNameList () {
-  return ['dx', 'cj']
+  let result = ['dx']
+  let bulidings = scene.getObjectByName('cj').children
+  for (let i = 0; i < bulidings.length; i++) {
+    result.push(bulidings[i].name)
+  }
+  return result
 }
 
 function blob2Zip (blobList) {
@@ -53,7 +58,8 @@ function blob2Zip (blobList) {
 
   let json = {
     nameList: fileNameList,
-    count: fileNameList.length
+    count: fileNameList.length,
+    position: JSON.stringify(scene.getObjectByName('cj').getWorldPosition())
   }
   zip.file("model.json", JSON.stringify(json));
 
